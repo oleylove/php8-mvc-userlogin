@@ -17,7 +17,7 @@ $(document).ready(function() {
             success: function(data) {
                 if (data == 'success') {
                     alert(
-                        "Password changed successfully\r\nPlease login again.");
+                        "Password changed successfully\r\nPlease login again.\r\n");
                     $("#form-change-password")[0].reset();
                     $("#form-change-password").css("opacity", "");
                     $("#submit-change-password").removeAttr("disabled")

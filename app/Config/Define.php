@@ -10,7 +10,7 @@ $rootDir = htmlspecialchars($_SERVER['DOCUMENT_ROOT'].'/'.NAME.'/');
 #URL
 define('BASEURL', dirname($rootUrl));
 define('ASSET', $rootUrl);
-define('SCRIPT', dirname($rootUrl).'/app/views/javascript/');
+
 
 #Directory
 define('MODEL', $rootDir.'app/models/');

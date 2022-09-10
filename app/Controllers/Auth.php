@@ -69,22 +69,19 @@ class Auth extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){ 
 
-            //check for id
+            //check already exist id
             if($this->UserModel->findById(Validator::input($_POST['id']))){
-                echo 'EN: ' .Validator::input($_POST['id']). ' already exist';
-                exit;
+                exit('EN: ' .Validator::input($_POST['id']). ' already exist');
             }
-            //check for email
+            //check already exist email
             if($this->UserModel->findByEmail(Validator::input($_POST['email']))){
-                echo 'Email: ' .Validator::input($_POST['email']). ' already exist';
-                exit;
+                exit('Email: ' .Validator::input($_POST['email']). ' already exist');
             }
 
             //validate confirm password
             if($_POST['password'] != $_POST['confirm_password'])
             {
-                echo 'Password does not match';
-                exit;
+                exit('Password does not match');
             }
 
 
@@ -153,8 +150,7 @@ class Auth extends Controller
 
                 //validate confirm password
                 if ($data['new_password'] != $data['confirm_password']) {
-                    echo 'New password does not match Confirm password.';
-                    exit;    
+                    exit('New password does not match Confirm password.');    
                 }
 
                 $user = $this->UserModel->getByid($data['id']);
@@ -165,26 +161,23 @@ class Auth extends Controller
                         $hash_new_password = password_hash($data['new_password'], PASSWORD_DEFAULT);
                         if ($this->UserModel->changePassword($data['id'],$hash_new_password)) {
                             $this->unsetSession();
-                            echo 'success';
+                            exit('success');
                         } else {
-                            echo 'Failed to change password';
+                            exit('Failed to change password');
                         } 
                     } else {
-                       echo 'Old passwords don not match.';
-                       exit;
+                       exit('Old passwords don not match.');
                     }
                 }else{
-                    echo 'Can not find this EN : ' . $data['id'];
-                    exit;
+                    exit('Can not find this EN : ' . $data['id']);
                 }
 
 
             }else {
-                echo ('NOT REQUEST METHOD POST');
+                exit('NOT REQUEST METHOD POST');
             }
 		} catch(PDOException $e) {
-			$status = false;
-			echo json_encode($status);
+            exit($e-getMessage());
 		}
 	}
 

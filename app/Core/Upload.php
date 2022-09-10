@@ -4,12 +4,6 @@ namespace App\Core;
 
 class Upload
 {
-
-    public function __construct()
-    {        
-
-    }
-
 	public static function register($data){
         $dirUser = 'images/users/';
 		if (!is_dir(STRORAGE.$dirUser) ) {

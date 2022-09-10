@@ -43,19 +43,19 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link <?= (isset($data['sidebar_adhesives'])) ? ' active': '';  ?>"
-                    href="<?= htmlspecialchars(BASEURL.'/adhesives') ?>">
+                <a class="nav-link <?= (isset($data['another_action'])) ? ' active': '';  ?>"
+                    href="<?= htmlspecialchars(BASEURL.'/another_action') ?>">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-box-2 <?= (isset($data['sidebar_adhesives'])) ? ' text-wite': ' text-dark';  ?>"></i>
+                        <i class="ni ni-box-2 <?= (isset($data['another_action'])) ? ' text-wite': ' text-dark';  ?>"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Adhesives</span>
+                    <span class="nav-link-text ms-1">another action</span>
                 </a>
             </li>
 
 
             <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Another pages</h6>
             </li>
             <li class="nav-item">
                 <a class="nav-link <?= (isset($data['another_action'])) ? ' active': '';  ?>"

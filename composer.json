@@ -1,0 +1,19 @@
+{
+    "name": "nitikorn/pd-dsa",
+    "type": "project",
+    "description": "php mvc soft-ui-dashboard-main",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nitikorn Hongsaput"
+        }
+    ],
+    "require": {
+        "php": "^8.0"
+    }
+}

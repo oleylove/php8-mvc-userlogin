@@ -30,5 +30,5 @@ class Config{
      * Database name
      * @var string
      */
-    const DB_NAME = 'db_pd';
+    const DB_NAME = 'db_php8_mvc_userlogin';
 }

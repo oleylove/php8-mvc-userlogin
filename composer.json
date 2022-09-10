@@ -1,7 +1,7 @@
 {
-    "name": "nitikorn/pd-dsa",
+    "name": "nitikorn/php8-mvc-userlogin",
     "type": "project",
-    "description": "php mvc soft-ui-dashboard-main",
+    "description": "php8 mvc web font Free Soft-ui-dashboard-main",
     "license": "MIT",
     "autoload": {
         "psr-4": {

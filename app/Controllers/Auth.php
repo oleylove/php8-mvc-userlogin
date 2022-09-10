@@ -98,8 +98,8 @@ class Auth extends Controller
 
             $data = [
                 'id' => Validator::input($_POST['id']),
-                'name' => Validator::input($_POST['name']),
-                'surname' => Validator::input($_POST['surname']),
+                'firstname' => Validator::input($_POST['firstname']),
+                'lastname' => Validator::input($_POST['lastname']),
                 'email' => Validator::input($_POST['email']),
                 'position' => Validator::input($_POST['position']),
                 'phone' => Validator::input($_POST['phone']),
@@ -121,7 +121,6 @@ class Auth extends Controller
 
         }else{
             echo ('NOT REQUEST METHOD POST');
-           
         }
     }
 
@@ -153,7 +152,7 @@ class Auth extends Controller
                     exit('New password does not match Confirm password.');    
                 }
 
-                $user = $this->UserModel->getByid($data['id']);
+                $user = $this->UserModel->getById($data['id']);
                 if ($user) {
                     //check old password
                     if (password_verify($data['old_password'], $user['password'])) {

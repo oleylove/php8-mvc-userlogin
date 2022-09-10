@@ -26,17 +26,17 @@
 
                             <div class="row">
                                 <div class="col">
-                                    <label>EN :</label>
+                                    <label>Employee ID :</label>
                                     <div class="input-group mb-3">
                                         <input type="number" class="form-control" name="id" id="id"
-                                            placeholder="200xxxxx" />
+                                            placeholder="200xxxxx" required />
                                     </div>
                                 </div>
                                 <div class="col">
                                     <label>Email :</label>
                                     <div class="input-group mb-3">
                                         <input type="email" class="form-control" name="email" id="email"
-                                            placeholder="name@example.com" />
+                                            placeholder="name@example.com" required />
                                     </div>
                                 </div>
                             </div>
@@ -45,15 +45,15 @@
                                 <div class="col">
                                     <label>First Name :</label>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="name" id="name"
-                                            placeholder="First Name" />
+                                        <input type="text" class="form-control" name="firstname" id="firstname"
+                                            placeholder="First Name" required />
                                     </div>
                                 </div>
                                 <div class="col">
                                     <label>Last Name :</label>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="surname" id="surname"
-                                            placeholder="Last Name" />
+                                        <input type="text" class="form-control" name="lastname" id="lastname"
+                                            placeholder="Last Name" required />
                                     </div>
                                 </div>
                             </div>
@@ -63,14 +63,14 @@
                                     <label>Mobile :</label>
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" name="phone" id="phone"
-                                            placeholder="088xxxxxxx" />
+                                            placeholder="088xxxxxxx" required />
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <label>Position:</label>
+                                    <label>Position :</label>
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" name="position" id="position"
-                                            placeholder="Position" />
+                                            placeholder="Position" required />
                                     </div>
                                 </div>
 
@@ -98,14 +98,14 @@
                                     <label>Password:</label>
                                     <div class="input-group mb-3">
                                         <input type="password" class="form-control" name="password" id="password"
-                                            placeholder="password" />
+                                            placeholder="password" required />
                                     </div>
                                 </div>
                                 <div class="col">
                                     <label>Confirm Password:</label>
                                     <div class="input-group mb-3">
                                         <input type="password" class="form-control" name="confirm_password"
-                                            id="confirm_password" placeholder="confirm password" />
+                                            id="confirm_password" placeholder="confirm password" required />
                                     </div>
                                 </div>
                             </div>

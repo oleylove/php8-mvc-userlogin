@@ -39,7 +39,7 @@ class Users extends Controller
     
     public function show($id)
     {
-        $user = $this->UserModel->getByid($id);
+        $user = $this->UserModel->getById($id);
         if ($user === false) {
             $this->redirect('errors/pagenotfound');
         } else {

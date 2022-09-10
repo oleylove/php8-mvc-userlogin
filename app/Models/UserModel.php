@@ -22,7 +22,7 @@ class UserModel{
 	}
 
 
-	public function getByid($id)
+	public function getById($id)
 	{
 		$sql = "SELECT * FROM users WHERE id = :id";
 		$this->pdo->query($sql);
@@ -72,13 +72,13 @@ class UserModel{
 	//register new user
 	public function register($data){
 		$sql = "INSERT INTO users";
-		$sql .= "(id, name, surname, email, position, password, phone, ext, shortcut, photo, role, create_at, update_at)VALUES";
-		$sql .=	"(:id, :name, :surname, :email, :position, :password, :phone, :ext, :shortcut, :photo, :role, :create_at, :update_at)";
+		$sql .= "(id, firstname, lastname, email, position, password, phone, ext, shortcut, photo, role, create_at, update_at)VALUES";
+		$sql .=	"(:id, :firstname, :lastname, :email, :position, :password, :phone, :ext, :shortcut, :photo, :role, :create_at, :update_at)";
 		
 		$this->pdo->query($sql);
 		$this->pdo->bind(':id', $data['id']);
-		$this->pdo->bind(':name', $data['name']);
-		$this->pdo->bind(':surname', $data['surname']);
+		$this->pdo->bind(':firstname', $data['firstname']);
+		$this->pdo->bind(':lastname', $data['lastname']);
 		$this->pdo->bind(':email', $data['email']);
 		$this->pdo->bind(':position', $data['position']);
 		$this->pdo->bind(':password', $data['password']);

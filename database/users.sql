@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `users` (
-  `id` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
-  `firstname` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `lastname` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `level` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `firstname` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `lastname` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `position` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `phone` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `ext` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE `users` (
 --
 -- user: admin@gmail.com
 -- pass: admin
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `level`, `password`, `phone`, `ext`, `shortcut`, `photo`, `role`, `create_at`, `update_at`) VALUES
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `position`, `password`, `phone`, `ext`, `shortcut`, `photo`, `role`, `create_at`, `update_at`) VALUES
 ('20021221', 'admin', 'admin', 'admin@gmail.com', 'admin', '$2y$10$2HJ7cFJYPfss59yYJlAxHuNBmAFLJug8Av.3uH/dP9ZE3hbxmHRHq', '0999999999', '2411', '#80509', 'images/users/5.jpg', 'admin', '2022-08-04 01:27:48', '2022-08-04 01:27:48'),
 ('20021222', 'user1', 'user1', 'user1@gmail.com', 'Technician', '$2y$10$TKyyi1Bp5PPz.39TDYQEVuQPYbYc3g0oRpkc9OlXOy4bHFzaKfXDa', '0999999999', '2411', '#80509', 'images/users/8.jpg', 'guest', '2022-08-04 01:27:48', '2022-08-04 01:27:48'),
 ('20021223', 'user2', 'user2', 'user2@gmail.com', 'Sr.Technician', '$2y$10$TKyyi1Bp5PPz.39TDYQEVuQPYbYc3g0oRpkc9OlXOy4bHFzaKfXDa', '0999999999', '2411', '#80509', 'images/users/7.jpg', 'off', '2022-08-04 01:27:48', '2022-08-04 01:27:48'),

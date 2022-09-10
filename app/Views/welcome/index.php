@@ -118,7 +118,7 @@
     };
 
     function ModalLoginShow() {
-        if (<?= (isset($_GET['logged']));?>) {
+        if (<?= (isset($_GET['logged']));?> || <?= (isset($_GET['signup']));?>) {
             $("#modal-sing-in").modal('show');
         }
     }
@@ -162,13 +162,13 @@
                 success: function(data) {
                     if (data == 'success') {
                         alert(
-                            "Successful registration\r\nYou are registerd you can login now"
+                            "Successful registration\r\nYou are registerd you can login now \r\n"
                             );
                         $("#form-sign-up")[0].reset();
                         $("#form-sign-up").css("opacity", "");
                         $("#submit-sign-up").removeAttr("disabled")
                         $("#modal-sing-up").modal("hide");
-                        window.location.assign('<?= BASEURL.'/welcome?logged=false' ?>');
+                        window.location.assign('<?= BASEURL.'/welcome?signup=true' ?>');
                     } else {
                         alert(data)
                         $("#form-sign-up").css("opacity", "");

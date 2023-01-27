@@ -9,6 +9,7 @@ use App\Core\Validator;
 class Users extends Controller
 {
     public $data = [];
+    private $UserModel;
 
     public function __construct()
     {

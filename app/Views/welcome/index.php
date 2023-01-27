@@ -113,78 +113,78 @@
     <?php require_once LAYOUT.'script.php'; ?>
 
     <script type="text/javascript">
-    window.onload = function() {
-        ModalLoginShow();
-    };
+        window.onload = function() {
+            ModalLoginShow();
+        };
 
-    function ModalLoginShow() {
-        if (<?= (isset($_GET['logged']));?> || <?= (isset($_GET['signup']));?>) {
-            $("#modal-sing-in").modal('show');
+        function ModalLoginShow() {
+            if (<?= (isset($_GET['logged']));?> || <?= (isset($_GET['signup']));?>) {
+                $("#modal-sing-in").modal('show');
+            }
         }
-    }
     </script>
 
     <script type="text/javascript">
-    $(document).ready(function() {
-        //check register upload image
-        $("#photo").change(function() {
-            try {
-                var file = this.files[0];
-                var fileType = file.type;
-                var match = ["image/jpeg", "image/png"];
-                if (!((fileType == match[0]) || (fileType == match[1]))) {
-                    alert("Sorry, only JPG, JPEG, PNG files are allowed.");
+        $(document).ready(function() {
+            //check register upload image
+            $("#photo").change(function() {
+                try {
+                    var file = this.files[0];
+                    var fileType = file.type;
+                    var match = ["image/jpeg", "image/png"];
+                    if (!((fileType == match[0]) || (fileType == match[1]))) {
+                        alert("Sorry, only JPG, JPEG, PNG files are allowed.");
+                        $("#photo").val("");
+                        return false;
+                    }
+                } catch (error) {
+                    alert(error);
                     $("#photo").val("");
                     return false;
                 }
-            } catch (error) {
-                alert(error);
-                $("#photo").val("");
-                return false;
-            }
-        });
-        //submit register
-        $(".card-body").on("submit", "#form-sign-up", function(event) {
-            event.preventDefault();
-            let actionUrl = '<?= BASEURL.'/auth/signup' ?>';
-            $("#submit-sign-up").attr("disabled", true);
-            $.ajax({
-                url: actionUrl,
-                method: "POST",
-                data: new FormData(this),
-                contentType: false,
-                cache: false,
-                processData: false,
-                beforeSend: function() {
-                    $("#submit-sign-up").attr("disabled", true);
-                    $("#form-sign-up").css("opacity", ".5");
-                },
-                success: function(data) {
-                    if (data == 'success') {
-                        alert(
-                            "Successful registration\r\nYou are registerd you can login now \r\n"
-                            );
-                        $("#form-sign-up")[0].reset();
+            });
+            //submit register
+            $(".card-body").on("submit", "#form-sign-up", function(event) {
+                event.preventDefault();
+                let actionUrl = '<?= BASEURL.'/auth/signup' ?>';
+                $("#submit-sign-up").attr("disabled", true);
+                $.ajax({
+                    url: actionUrl,
+                    method: "POST",
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    beforeSend: function() {
+                        $("#submit-sign-up").attr("disabled", true);
+                        $("#form-sign-up").css("opacity", ".5");
+                    },
+                    success: function(data) {
+                        if (data == 'success') {
+                            alert(
+                                "Successful registration \r\n You are registerd you can login now \r\n"
+                                );
+                            $("#form-sign-up")[0].reset();
+                            $("#form-sign-up").css("opacity", "");
+                            $("#submit-sign-up").removeAttr("disabled")
+                            $("#modal-sing-up").modal("hide");
+                            window.location.assign('<?= BASEURL.'/welcome?signup=true' ?>');
+                        } else {
+                            alert(data)
+                            $("#form-sign-up").css("opacity", "");
+                            $("#submit-sign-up").removeAttr("disabled")
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorMessage, errorThrown) {
                         $("#form-sign-up").css("opacity", "");
                         $("#submit-sign-up").removeAttr("disabled")
-                        $("#modal-sing-up").modal("hide");
-                        window.location.assign('<?= BASEURL.'/welcome?signup=true' ?>');
-                    } else {
-                        alert(data)
-                        $("#form-sign-up").css("opacity", "");
-                        $("#submit-sign-up").removeAttr("disabled")
-                    }
-                },
-                error: function(jqXHR, textStatus, errorMessage, errorThrown) {
-                    $("#form-sign-up").css("opacity", "");
-                    $("#submit-sign-up").removeAttr("disabled")
-                    alert(jqXHR + "\n" + textStatus + "\n" + errorMessage + "\n" +
-                        errorThrown);
-                },
-            })
+                        alert(jqXHR + "\n" + textStatus + "\n" + errorMessage + "\n" +
+                            errorThrown);
+                    },
+                })
 
+            });
         });
-    });
     </script>
 
 </body>

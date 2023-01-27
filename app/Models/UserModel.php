@@ -5,9 +5,10 @@ use App\Core\Model;
 
 class UserModel{
 
-    //private $pdo;
+    private $pdo;
 	private $db;
 	private $tblusr = 'users';
+
 
     public function __construct(){
         $this->pdo = new Model;

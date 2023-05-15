@@ -34,19 +34,6 @@ class Welcome extends Controller
         $this->view('welcome/about-us',$data);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function nucleoicon()
     {
         $data = [

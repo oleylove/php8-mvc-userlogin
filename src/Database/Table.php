@@ -5,7 +5,7 @@ namespace Foundation\Database;
 class Table {
     protected $name;
     protected $sql 
-        = "CREATE TABLE IF NOT EXISTS %s ( %s ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
+        = "CREATE TABLE IF NOT EXISTS %s ( %s ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
     protected $fields = [];
 
     public function __construct($name) {
@@ -51,8 +51,8 @@ class Table {
         return $this;
     }
 
-    public function string($fieldName) {
-        $this->fields[] = "{$fieldName} varchar(191) NOT NULL";
+    public function string($fieldName ,$length) {
+        $this->fields[] = "{$fieldName} varchar({$length}) NOT NULL";
 
         return $this;
     }

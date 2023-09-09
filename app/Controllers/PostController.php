@@ -6,6 +6,14 @@ use App\Models\Post;
 
 class PostController {
 
+    private $postId;
+
+    public function __construct()
+    {
+        $this->postId = (!empty($_GET['post'])) ? $_GET['post'] : null;
+    }
+    
+    
     public function index() {
         return view('posts.index', [
             'posts' => Post::all()
@@ -29,12 +37,12 @@ class PostController {
 
     public function edit() {
         return view('posts.edit', [
-            'post' =>Post::find($_GET['post'])
+            'post' =>Post::find($this->postId)
         ]);
     }
 
     public function update() {
-        $post = Post::find($_GET['post']);
+        $post = Post::find($this->postId);
         $post->update([
             'title' => $_POST['title'],
             'body' => $_POST['body']
@@ -46,14 +54,15 @@ class PostController {
     }
 
     public function show() {
+        $post = Post::find($this->postId);
         return view('posts.show', [
-            'post' => Post::find($_GET['post'])
+            'post' => $post
         ]);
     }
 
     public function destroy() {
-        Post::find($_GET['post'])->delete();
+        Post::find($this->postId)->delete();
 
-        return redirect()->route('/');
+        return redirect()->route('posts.index');
     }
 }

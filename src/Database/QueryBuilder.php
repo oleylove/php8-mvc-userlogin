@@ -39,21 +39,22 @@ class QueryBuilder {
 
         try {
             $statement = $this->pdo->prepare($sql);
-            $statement->execute([
-                'id' => $id
-            ]);
-
-            if($class != null)
+            $statement->execute(['id' => $id]);
+            if($class != null){
                 $statement->setFetchMode(PDO::FETCH_CLASS, $class);
-            else
+            }else{
                 $statement->setFetchMode(PDO::FETCH_OBJ);
+            }
 
             $data = $statement->fetch();
 
-            if($data)
+            if ($data) {
                 return $data;
-
-            throw new Exception("No data found!");
+            } else {
+               //return false;
+                throw new Exception('No data found!');
+            }
+           
         } catch(PDOException $e) {
             die("Whoops! Something went wrong!");
         }
@@ -82,9 +83,7 @@ class QueryBuilder {
     }
 
     public function create($table, $data) {
-        $sql = sprintf(
-            "INSERT INTO %s (%s) VALUES (%s)",
-            $table,
+        $sql = sprintf("INSERT INTO %s (%s) VALUES (%s)", $table,
             implode(', ', array_keys($data)),
             ':' . implode(', :', array_keys($data))
         );

@@ -1,15 +1,9 @@
 <?php
 
-#set directory project
-$projectName = dirname(__DIR__);
-$directory = rtrim($projectName,'\\');
-$directory = explode('\\',$directory);
-define('NAME', $directory[count($directory)-1]);
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../bootstrap/app.php';
 
-date_default_timezone_set('Asia/Bangkok');
-session_start();
+use Foundation\Http\Router;
+use Foundation\Http\Request;
 
-
-require_once  $_SERVER['DOCUMENT_ROOT'].'/'.NAME.'/app/init.php';
-
-$router = new App\Core\Router;
+Router::load(__DIR__ . '/../routes/web.php')->direct(Request::uri(), Request::method());
